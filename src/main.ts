@@ -78,9 +78,9 @@ class Grid {
     const cellWidth = ctx.canvas.width / this.width;
     const cellHeight = ctx.canvas.height / this.height;
 
+    this.drawCells(ctx, state, cellWidth, cellHeight);
     this.drawColumns(ctx, cellWidth);
     this.drawRows(ctx, cellHeight);
-    this.drawCells(ctx, state, cellWidth, cellHeight);
   }
 
   private drawBorder(ctx: CanvasRenderingContext2D): void {
@@ -137,4 +137,13 @@ const game = new Game(
 
 game.init();
 
-requestAnimationFrame(game.render.bind(game, packet));
+const ws = new WebSocket("ws://localhost:8081");
+
+ws.onopen = () => {
+  ws.send("New web client connected");
+};
+
+ws.onmessage = (event: any) => {
+  const state = JSON.parse(event.data);
+  requestAnimationFrame(() => game.render(state));
+};
