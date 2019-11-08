@@ -1,0 +1,33 @@
+{
+  "name": "mmolife-web-client",
+  "version": "1.0.0",
+  "description": "Conway's game of life client",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p watch-tsc watch-web",
+    "watch-tsc": "tsc -w src/js/main.ts",
+    "watch-web": "live-server --ignore=*.ts --watch=src/ --mount=/:src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Solirius/mmolife-web-client.git"
+  },
+  "keywords": [
+    "conways",
+    "game",
+    "of",
+    "life"
+  ],
+  "author": "Solirius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Solirius/mmolife-web-client/issues"
+  },
+  "homepage": "https://github.com/Solirius/mmolife-web-client#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^3.7.2"
+  }
+}
