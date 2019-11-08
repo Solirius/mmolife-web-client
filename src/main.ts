@@ -5,7 +5,7 @@ const canvasEl = document.getElementById("game") as HTMLCanvasElement;
 const ctx = canvasEl.getContext("2d")!;
 
 ws.onopen = () => {
-  ws.send("New web client connected");
+  //ws.send("New web client connected");
 };
 
 let game: Game;
