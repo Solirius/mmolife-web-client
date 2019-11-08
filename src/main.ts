@@ -26,3 +26,11 @@ ws.onmessage = (event: any) => {
     });
   }
 };
+
+canvasEl.addEventListener("click", e => {
+  if (game) {
+    const coords = game.getCells(e);
+
+    ws.send(JSON.stringify(coords));
+  }
+}, false);

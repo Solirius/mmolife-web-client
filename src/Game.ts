@@ -64,4 +64,18 @@ export class Game {
       }
     }
   }
+
+  public getCells(e: MouseEvent): [number, number] {
+    const rect = (e.target as any).getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const cellWidth = this.ctx.canvas.width / this.initEvent.config.width;
+    const cellHeight = this.ctx.canvas.height / this.initEvent.config.height;
+
+    const i = Math.floor(x / cellWidth);
+    const j = Math.floor(y / cellHeight);
+
+    return [j, i];
+  }
 }
